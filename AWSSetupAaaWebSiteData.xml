@@ -14,79 +14,105 @@ along with this software (see the LICENSE.md file). If not, see
 -->
 <entity-facade-xml type="seed-initial">
 
-    <mantle.party.Party partyId="aws" disabled="N" partyTypeEnumId="PtyOrganization">
-        <mantle.party.PartyRole roleTypeId="OrgInternal"/>
-        <organization organizationName="AntWebsystems Co.,Ltd."/>
-        <mantle.party.contact.ContactMech contactMechId="Ant_PWS" contactMechTypeEnumId="CmtWebAddress"
-                infoString="https://www.antwebsystems.com">
-            <mantle.party.contact.PartyContactMech contactMechPurposeId="WebUrlPayment" fromDate="1265184000000"/>
-            <mantle.party.contact.PartyContactMech contactMechPurposeId="WebUrlPrimary" fromDate="1265184000000"/>
+    <mantle.party.Party partyId="aws" disabled="Y" partyTypeEnumId="PtyOrganization">
+        <mantle.party.PartyRole roleTypeId="OrgInternal" />
+        <organization organizationName="AntWebsystems Co.,Ltd." />
+        <mantle.party.contact.ContactMech contactMechId="Ant_PWS"
+            contactMechTypeEnumId="CmtWebAddress"
+            infoString="https://www.antwebsystems.com">
+            <mantle.party.contact.PartyContactMech contactMechPurposeId="WebUrlPayment"
+                fromDate="1265184000000" />
+            <mantle.party.contact.PartyContactMech contactMechPurposeId="WebUrlPrimary"
+                fromDate="1265184000000" />
         </mantle.party.contact.ContactMech>
     </mantle.party.Party>
 
-    <moqui.basic.EnumerationType enumTypeId="ProductStoreContentType" description="Product Store Content Type"/>
+    <moqui.basic.EnumerationType enumTypeId="ProductStoreContentType"
+        description="Product Store Content Type" />
 
-    <moqui.basic.Enumeration enumCode="template_client_content" description="Content Template - Client" enumId="PsctContentTemplate" enumTypeId="ProductStoreContentType"/>
-    <moqui.basic.Enumeration enumCode="template_client_blog" description="Blog Template - Client" enumId="PsctBlogTemplate" enumTypeId="ProductStoreContentType"/>
+    <moqui.basic.Enumeration enumCode="template_client_content"
+        description="Content Template - Client" enumId="PsctContentTemplate"
+        enumTypeId="ProductStoreContentType" />
+    <moqui.basic.Enumeration enumCode="template_client_blog" description="Blog Template - Client"
+        enumId="PsctBlogTemplate" enumTypeId="ProductStoreContentType" />
 
     <!-- AntWebsystems Wiki/Content -->
-    <moqui.resource.DbResource filename="AntWebsystems" isFile="N" resourceId="AntWebsystems" parentResourceId=""/>
-    <moqui.resource.DbResource filename="web" isFile="N" resourceId="aws_web" parentResourceId="AntWebsystems"/>
-    <moqui.resource.DbResource filename="content.html" isFile="Y" resourceId="aws_content" parentResourceId="aws_web">
+    <moqui.resource.DbResource filename="AntWebsystems" isFile="N" resourceId="AntWebsystems"
+        parentResourceId="" />
+    <moqui.resource.DbResource filename="web" isFile="N" resourceId="aws_web"
+        parentResourceId="AntWebsystems" />
+    <moqui.resource.DbResource filename="content.html" isFile="Y" resourceId="aws_content"
+        parentResourceId="aws_web">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[<h3>Welcome to AntWebsystems</h3>]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
     <!-- this is the directory to put all site content under -->
-    <moqui.resource.DbResource filename="content" isFile="N" resourceId="aws_content_dir" parentResourceId="aws_web"/>
-    <moqui.resource.DbResource filename="content_th" isFile="N" resourceId="aws_content_th_dir" parentResourceId="aws_web"/>
+    <moqui.resource.DbResource filename="content" isFile="N" resourceId="aws_content_dir"
+        parentResourceId="aws_web" />
+    <moqui.resource.DbResource filename="content_th" isFile="N" resourceId="aws_content_th_dir"
+        parentResourceId="aws_web" />
     <!-- WikiSpace and root page -->
 
     <!-- WikiSpace and root page -->
-    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_SPACE" description="Content for AntWebsystems Website" restrictView="N" allowAnyHtml="Y"
-            rootPageLocation="dbresource://AntWebsystems/web/content.html" decoratorScreenLocation=""
-            publicPageUrl="/aws/content/${pagePath}?ver=${versionName}" publicAttachmentUrl="/aws/content/attachment/${wikiPageId}/${filename}"/>
-    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_SPACE_TH" description="Content in Thai for AntWebsystems Website" restrictView="N" allowAnyHtml="Y"
-            rootPageLocation="dbresource://AntWebsystems/web/content_th.html" decoratorScreenLocation=""
-            publicPageUrl="/aws/content_th/${pagePath}?ver=${versionName}" publicAttachmentUrl=""/>
+    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_SPACE"
+        description="Content for AntWebsystems Website" restrictView="N" allowAnyHtml="Y"
+        rootPageLocation="dbresource://AntWebsystems/web/content.html" decoratorScreenLocation=""
+        publicPageUrl="/aws/content/${pagePath}?ver=${versionName}"
+        publicAttachmentUrl="/aws/content/attachment/${wikiPageId}/${filename}" />
+    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_SPACE_TH"
+        description="Content in Thai for AntWebsystems Website" restrictView="N" allowAnyHtml="Y"
+        rootPageLocation="dbresource://AntWebsystems/web/content_th.html" decoratorScreenLocation=""
+        publicPageUrl="/aws/content_th/${pagePath}?ver=${versionName}" publicAttachmentUrl="" />
 
-    <moqui.resource.DbResource filename="content_th.html" isFile="Y" resourceId="aws_content_th" parentResourceId="aws_web">
+    <moqui.resource.DbResource filename="content_th.html" isFile="Y" resourceId="aws_content_th"
+        parentResourceId="aws_web">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[<h3>Antwebsystems TH in TH</h3>]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
 
     <!-- AntWebsystems Template Wiki Space -->
-    <moqui.resource.DbResource filename="templates.html" isFile="Y" resourceId="aws_templates" parentResourceId="aws_web">
+    <moqui.resource.DbResource filename="templates.html" isFile="Y" resourceId="aws_templates"
+        parentResourceId="aws_web">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[<h3>AntWebsystems WebSite Templates</h3>]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.DbResource filename="templates-th.html" isFile="Y" resourceId="aws_templates_th" parentResourceId="aws_web">
+    <moqui.resource.DbResource filename="templates-th.html" isFile="Y" resourceId="aws_templates_th"
+        parentResourceId="aws_web">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[<h3>AntWebsystems WebSite Templates in TH</h3>]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
     <!-- this is the directory to put all site templates under -->
-    <moqui.resource.DbResource filename="templates" isFile="N" resourceId="aws_templates_dir" parentResourceId="aws_web"/>
-    <moqui.resource.DbResource filename="templates-th" isFile="N" resourceId="aws_templates-th_dir" parentResourceId="aws_web"/>
+    <moqui.resource.DbResource filename="templates" isFile="N" resourceId="aws_templates_dir"
+        parentResourceId="aws_web" />
+    <moqui.resource.DbResource filename="templates-th" isFile="N" resourceId="aws_templates-th_dir"
+        parentResourceId="aws_web" />
     <!-- WikiSpace and root page -->
-    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_TMP" description="Templates for AntWebsystems WebSite" restrictView="N" allowAnyHtml="Y"
-            rootPageLocation="dbresource://AntWebsystems/web/templates.html" decoratorScreenLocation=""/>
+    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_TMP"
+        description="Templates for AntWebsystems WebSite" restrictView="N" allowAnyHtml="Y"
+        rootPageLocation="dbresource://AntWebsystems/web/templates.html" decoratorScreenLocation="" />
     <moqui.resource.wiki.WikiPage wikiPageId="aws_templates" wikiSpaceId="AWS_TMP" pagePath="">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
 
-    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_TMP_TH" description="Templates for AntWebsystems WebSite in Thai" restrictView="N" allowAnyHtml="Y"
-            rootPageLocation="dbresource://AntWebsystems/web/templates-th.html" decoratorScreenLocation=""/>
+    <moqui.resource.wiki.WikiSpace wikiSpaceId="AWS_TMP_TH"
+        description="Templates for AntWebsystems WebSite in Thai" restrictView="N" allowAnyHtml="Y"
+        rootPageLocation="dbresource://AntWebsystems/web/templates-th.html"
+        decoratorScreenLocation="" />
     <moqui.resource.wiki.WikiPage wikiPageId="aws_templates_th" wikiSpaceId="AWS_TMP_TH" pagePath="">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
 
     <!-- About us -->
-    <moqui.resource.DbResource filename="aws_about.html" isFile="Y" resourceId="aws_about" parentResourceId="aws_content_dir">
+    <moqui.resource.DbResource filename="aws_about.html" isFile="Y" resourceId="aws_about"
+        parentResourceId="aws_content_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script  type="text/javascript">
@@ -151,16 +177,19 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_about" wikiSpaceId="AWS_SPACE" pagePath="aws_about" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_about" wikiSpaceId="AWS_SPACE"
+        pagePath="aws_about" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" wikiPageId="aws_about" aliasPath="aboutus"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" wikiPageId="aws_about"
+        aliasPath="aboutus" />
 
     <!-- services -->
-    <moqui.resource.DbResource filename="aws_services.html" isFile="Y" resourceId="aws_services" parentResourceId="aws_content_dir">
+    <moqui.resource.DbResource filename="aws_services.html" isFile="Y" resourceId="aws_services"
+        parentResourceId="aws_content_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script  type="text/javascript">
@@ -269,16 +298,19 @@ along with this software (see the LICENSE.md file). If not, see
            </div>
         </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_services" wikiSpaceId="AWS_SPACE" pagePath="aws_services" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_services" wikiSpaceId="AWS_SPACE"
+        pagePath="aws_services" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="services" wikiPageId="aws_services"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="services"
+        wikiPageId="aws_services" />
 
     <!-- Product  -->
-    <moqui.resource.DbResource filename="aws_product.html" isFile="Y" resourceId="aws_product" parentResourceId="aws_content_dir">
+    <moqui.resource.DbResource filename="aws_product.html" isFile="Y" resourceId="aws_product"
+        parentResourceId="aws_content_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script  type="text/javascript">
@@ -365,16 +397,19 @@ along with this software (see the LICENSE.md file). If not, see
            </div>
         </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_product" wikiSpaceId="AWS_SPACE" pagePath="aws_product" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_product" wikiSpaceId="AWS_SPACE"
+        pagePath="aws_product" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="products" wikiPageId="aws_product"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="products"
+        wikiPageId="aws_product" />
 
     <!-- Job  -->
-    <moqui.resource.DbResource filename="aws_jobs.html" isFile="Y" resourceId="aws_jobs" parentResourceId="aws_content_dir">
+    <moqui.resource.DbResource filename="aws_jobs.html" isFile="Y" resourceId="aws_jobs"
+        parentResourceId="aws_content_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script  type="text/javascript">
@@ -457,16 +492,19 @@ along with this software (see the LICENSE.md file). If not, see
            </div>
         </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_jobs" wikiSpaceId="AWS_SPACE" pagePath="aws_jobs" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_jobs" wikiSpaceId="AWS_SPACE" pagePath="aws_jobs"
+        publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="jobs" wikiPageId="aws_jobs"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="jobs"
+        wikiPageId="aws_jobs" />
 
     <!-- Partner  -->
-    <moqui.resource.DbResource filename="aws_partner.html" isFile="Y" resourceId="aws_partner" parentResourceId="aws_content_dir">
+    <moqui.resource.DbResource filename="aws_partner.html" isFile="Y" resourceId="aws_partner"
+        parentResourceId="aws_content_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <section id="content">
@@ -537,16 +575,19 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_partner" wikiSpaceId="AWS_SPACE" pagePath="aws_partner" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_partner" wikiSpaceId="AWS_SPACE"
+        pagePath="aws_partner" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="partner" wikiPageId="aws_partner"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="partner"
+        wikiPageId="aws_partner" />
 
     <!-- Contact us  -->
-    <moqui.resource.DbResource filename="aws_contact.html" isFile="Y" resourceId="aws_contact" parentResourceId="aws_content_dir">
+    <moqui.resource.DbResource filename="aws_contact.html" isFile="Y" resourceId="aws_contact"
+        parentResourceId="aws_content_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script  type="text/javascript">
@@ -651,26 +692,32 @@ along with this software (see the LICENSE.md file). If not, see
                </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_contact" wikiSpaceId="AWS_SPACE" pagePath="aws_contact" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_contact" wikiSpaceId="AWS_SPACE"
+        pagePath="aws_contact" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="contact" wikiPageId="aws_contact"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE" aliasPath="contact"
+        wikiPageId="aws_contact" />
 
     <!-- client pages -->
-    <moqui.resource.DbResource filename="client" isFile="N" resourceId="aws_client_dir" parentResourceId="aws_templates_dir"/>
-    <moqui.resource.DbResource filename="client.html" isFile="Y" resourceId="aws_client" parentResourceId="aws_templates_dir">
+    <moqui.resource.DbResource filename="client" isFile="N" resourceId="aws_client_dir"
+        parentResourceId="aws_templates_dir" />
+    <moqui.resource.DbResource filename="client.html" isFile="Y" resourceId="aws_client"
+        parentResourceId="aws_templates_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[<h3>AntWebsystems Templates - Client</h3>]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
     <moqui.resource.wiki.WikiPage wikiPageId="aws_client" wikiSpaceId="AWS_TMP" pagePath="client">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
     <!-- demo override client footer pages -->
-    <moqui.resource.DbResource filename="footer.html" isFile="Y" resourceId="aws_clt_footer" parentResourceId="aws_client_dir">
+    <moqui.resource.DbResource filename="footer.html" isFile="Y" resourceId="aws_clt_footer"
+        parentResourceId="aws_client_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <footer>
@@ -687,13 +734,16 @@ along with this software (see the LICENSE.md file). If not, see
               </div>
             </footer>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_footer" wikiSpaceId="AWS_TMP" pagePath="client/footer" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_footer" wikiSpaceId="AWS_TMP"
+        pagePath="client/footer" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
     <!-- client header pages -->
-    <moqui.resource.DbResource filename="header.html" isFile="Y" resourceId="aws_clt_header" parentResourceId="aws_client_dir">
+    <moqui.resource.DbResource filename="header.html" isFile="Y" resourceId="aws_clt_header"
+        parentResourceId="aws_client_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <header>
@@ -725,13 +775,16 @@ along with this software (see the LICENSE.md file). If not, see
               </div>
             </header>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_header" wikiSpaceId="AWS_TMP" pagePath="client/header" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_header" wikiSpaceId="AWS_TMP"
+        pagePath="client/header" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
     <!-- client body pages -->
-    <moqui.resource.DbResource filename="body.html" isFile="Y" resourceId="aws_clt_body" parentResourceId="aws_client_dir">
+    <moqui.resource.DbResource filename="body.html" isFile="Y" resourceId="aws_clt_body"
+        parentResourceId="aws_client_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script  type="text/javascript">
@@ -846,28 +899,38 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
         ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_body" wikiSpaceId="AWS_TMP" pagePath="client/body" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_body" wikiSpaceId="AWS_TMP"
+        pagePath="client/body" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
 
     <!-- Client pages in TH -->
-    <moqui.resource.DbResource filename="client-th" isFile="N" resourceId="aws_client-th_dir" parentResourceId="aws_templates-th_dir"/>
-    <moqui.resource.DbResource filename="client-th.html" isFile="Y" resourceId="aws_client-th" parentResourceId="aws_templates-th_dir">
+    <moqui.resource.DbResource filename="client-th" isFile="N" resourceId="aws_client-th_dir"
+        parentResourceId="aws_templates-th_dir" />
+    <moqui.resource.DbResource filename="client-th.html" isFile="Y" resourceId="aws_client-th"
+        parentResourceId="aws_templates-th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[<h3>Antwebsystems Templates in TH</h3>]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_client-th" wikiSpaceId="AWS_TMP_TH" pagePath="client-th">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_client-th" wikiSpaceId="AWS_TMP_TH"
+        pagePath="client-th">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
 
-<!--     <moqui.resource.DbResource filename="client-th" isFile="N" resourceId="aws_client-th_dir" parentResourceId="aws_templates_dir"/> -->
-<!--     <moqui.resource.wiki.WikiPage wikiPageId="aws_client_th" wikiSpaceId="AWS_TMP_TH" pagePath="client-th"> -->
-<!--         <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage> -->
+    <!--     <moqui.resource.DbResource filename="client-th" isFile="N" resourceId="aws_client-th_dir"
+    parentResourceId="aws_templates_dir"/> -->
+    <!--     <moqui.resource.wiki.WikiPage wikiPageId="aws_client_th" wikiSpaceId="AWS_TMP_TH"
+    pagePath="client-th"> -->
+    <!--         <histories historySeqId="01" versionName="01"
+    changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage> -->
     <!-- demo override client footer pages -->
-    <moqui.resource.DbResource filename="footer.html" isFile="Y" resourceId="aws_clt_footer_th" parentResourceId="aws_client-th_dir">
+    <moqui.resource.DbResource filename="footer.html" isFile="Y" resourceId="aws_clt_footer_th"
+        parentResourceId="aws_client-th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <footer>
@@ -884,13 +947,16 @@ along with this software (see the LICENSE.md file). If not, see
               </div>
             </footer>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_footer_th" wikiSpaceId="AWS_TMP_TH" pagePath="client-th/footer" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_footer_th" wikiSpaceId="AWS_TMP_TH"
+        pagePath="client-th/footer" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
     <!-- client header pages -->
-    <moqui.resource.DbResource filename="header.html" isFile="Y" resourceId="aws_clt_header_th" parentResourceId="aws_client-th_dir">
+    <moqui.resource.DbResource filename="header.html" isFile="Y" resourceId="aws_clt_header_th"
+        parentResourceId="aws_client-th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <header>
@@ -922,13 +988,16 @@ along with this software (see the LICENSE.md file). If not, see
               </div>
             </header>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_header_th" wikiSpaceId="AWS_TMP_TH" pagePath="client-th/header" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_header_th" wikiSpaceId="AWS_TMP_TH"
+        pagePath="client-th/header" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
     <!-- client body pages -->
-    <moqui.resource.DbResource filename="body.html" isFile="Y" resourceId="aws_clt_body_th" parentResourceId="aws_client-th_dir">
+    <moqui.resource.DbResource filename="body.html" isFile="Y" resourceId="aws_clt_body_th"
+        parentResourceId="aws_client-th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script  type="text/javascript">
@@ -1035,14 +1104,17 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
         ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_body_th" wikiSpaceId="AWS_TMP_TH" pagePath="client-th/body" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/></moqui.resource.wiki.WikiPage>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_clt_body_th" wikiSpaceId="AWS_TMP_TH"
+        pagePath="client-th/body" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
+    </moqui.resource.wiki.WikiPage>
 
     <!-- About us -->
-    <moqui.resource.DbResource filename="aws_about_th.html" isFile="Y" resourceId="aws_about_th" parentResourceId="aws_content_th_dir">
+    <moqui.resource.DbResource filename="aws_about_th.html" isFile="Y" resourceId="aws_about_th"
+        parentResourceId="aws_content_th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script type="text/javascript">
@@ -1151,16 +1223,19 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_about_th" wikiSpaceId="AWS_SPACE_TH" pagePath="aws_about_th" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_about_th" wikiSpaceId="AWS_SPACE_TH"
+        pagePath="aws_about_th" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" wikiPageId="aws_about_th" aliasPath="aboutus"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" wikiPageId="aws_about_th"
+        aliasPath="aboutus" />
 
     <!-- services -->
-    <moqui.resource.DbResource filename="aws_services_th.html" isFile="Y" resourceId="aws_services_th" parentResourceId="aws_content_th_dir">
+    <moqui.resource.DbResource filename="aws_services_th.html" isFile="Y"
+        resourceId="aws_services_th" parentResourceId="aws_content_th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script type="text/javascript">
@@ -1312,16 +1387,19 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_services_th" wikiSpaceId="AWS_SPACE_TH" pagePath="aws_services_th" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_services_th" wikiSpaceId="AWS_SPACE_TH"
+        pagePath="aws_services_th" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="services" wikiPageId="aws_services_th"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="services"
+        wikiPageId="aws_services_th" />
 
     <!-- Product  -->
-    <moqui.resource.DbResource filename="aws_product_th.html" isFile="Y" resourceId="aws_product_th" parentResourceId="aws_content_th_dir">
+    <moqui.resource.DbResource filename="aws_product_th.html" isFile="Y" resourceId="aws_product_th"
+        parentResourceId="aws_content_th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script type="text/javascript">
@@ -1451,16 +1529,19 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_product_th" wikiSpaceId="AWS_SPACE_TH" pagePath="aws_product_th" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_product_th" wikiSpaceId="AWS_SPACE_TH"
+        pagePath="aws_product_th" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="products" wikiPageId="aws_product_th"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="products"
+        wikiPageId="aws_product_th" />
 
     <!-- Job  -->
-    <moqui.resource.DbResource filename="aws_job_th.html" isFile="Y" resourceId="aws_job_th" parentResourceId="aws_content_th_dir">
+    <moqui.resource.DbResource filename="aws_job_th.html" isFile="Y" resourceId="aws_job_th"
+        parentResourceId="aws_content_th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script type="text/javascript">
@@ -1586,16 +1667,19 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_job_th" wikiSpaceId="AWS_SPACE_TH" pagePath="aws_job_th" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_job_th" wikiSpaceId="AWS_SPACE_TH"
+        pagePath="aws_job_th" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="jobs" wikiPageId="aws_job_th"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="jobs"
+        wikiPageId="aws_job_th" />
 
     <!-- Partner  -->
-    <moqui.resource.DbResource filename="aws_partner_th.html" isFile="Y" resourceId="aws_partner_th" parentResourceId="aws_content_th_dir">
+    <moqui.resource.DbResource filename="aws_partner_th.html" isFile="Y" resourceId="aws_partner_th"
+        parentResourceId="aws_content_th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <section id="content">
@@ -1633,16 +1717,19 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_partner_th" wikiSpaceId="AWS_SPACE_TH" pagePath="aws_partner_th" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_partner_th" wikiSpaceId="AWS_SPACE_TH"
+        pagePath="aws_partner_th" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="partner" wikiPageId="aws_partner_th"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="partner"
+        wikiPageId="aws_partner_th" />
 
     <!-- Contact us  -->
-    <moqui.resource.DbResource filename="aws_contact_th.html" isFile="Y" resourceId="aws_contact_th" parentResourceId="aws_content_th_dir">
+    <moqui.resource.DbResource filename="aws_contact_th.html" isFile="Y" resourceId="aws_contact_th"
+        parentResourceId="aws_content_th_dir">
         <file mimeType="text/html" versionName="01" rootVersionName="01">
             <fileData><![CDATA[
             <script type="text/javascript">
@@ -1731,49 +1818,74 @@ along with this software (see the LICENSE.md file). If not, see
                 </div>
             </section>
             ]]></fileData>
-            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N" />
         </file>
     </moqui.resource.DbResource>
-    <moqui.resource.wiki.WikiPage wikiPageId="aws_contact_th" wikiSpaceId="AWS_SPACE_TH" pagePath="aws_contact_th" publishedVersionName="01">
-        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    <moqui.resource.wiki.WikiPage wikiPageId="aws_contact_th" wikiSpaceId="AWS_SPACE_TH"
+        pagePath="aws_contact_th" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000" />
     </moqui.resource.wiki.WikiPage>
-    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="contact" wikiPageId="aws_contact_th"/>
+    <moqui.resource.wiki.WikiPageAlias wikiSpaceId="AWS_SPACE_TH" aliasPath="contact"
+        wikiPageId="aws_contact_th" />
     <!-- End of TH content of WebSite -->
 
     <!-- Wiki and ProductStore -->
-    <mantle.product.store.ProductStore productStoreId="aws" organizationPartyId="aws"/>
-    <moqui.basic.EnumerationType enumTypeId="ProductStoreWikiSpaceType" description="Product Store Wiki Space Type"/>
-    <moqui.basic.Enumeration enumTypeId="ProductStoreWikiSpaceType" enumId="PstTmpSrv" description="Template - Information (home, product, etc)"/>
-    <moqui.basic.Enumeration enumTypeId="ProductStoreWikiSpaceType" enumId="PstFull" description="Content - Full Page"/>
+    <mantle.product.store.ProductStore productStoreId="aws" organizationPartyId="aws" />
+    <moqui.basic.EnumerationType enumTypeId="ProductStoreWikiSpaceType"
+        description="Product Store Wiki Space Type" />
+    <moqui.basic.Enumeration enumTypeId="ProductStoreWikiSpaceType" enumId="PstTmpSrv"
+        description="Template - Information (home, product, etc)" />
+    <moqui.basic.Enumeration enumTypeId="ProductStoreWikiSpaceType" enumId="PstFull"
+        description="Content - Full Page" />
     <!-- Multi-language Website -->
     <mantle.product.store.ProductStoreWikiSpace storeWikiSpaceId="AWS_TMP_CLT" productStoreId="aws"
-            spaceTypeEnumId="PstTmpSrv" locale="en_US" fromDate="1265184000000" thruDate="" wikiSpaceId="AWS_TMP"/>
+        spaceTypeEnumId="PstTmpSrv" locale="en_US" fromDate="1265184000000" thruDate=""
+        wikiSpaceId="AWS_TMP" />
     <mantle.product.store.ProductStoreWikiSpace storeWikiSpaceId="AWS_FULL_CNT" productStoreId="aws"
-            spaceTypeEnumId="PstFull" locale="en_US" fromDate="1265184000000" thruDate="" wikiSpaceId="AWS_SPACE"/>
+        spaceTypeEnumId="PstFull" locale="en_US" fromDate="1265184000000" thruDate=""
+        wikiSpaceId="AWS_SPACE" />
     <!-- TH -->
-    <mantle.product.store.ProductStoreWikiSpace storeWikiSpaceId="AWS_TMPTH_CLT" productStoreId="aws"
-            spaceTypeEnumId="PstTmpSrv" locale="th_TH" fromDate="1265184000000" thruDate="" wikiSpaceId="AWS_TMP_TH"/>
-    <mantle.product.store.ProductStoreWikiSpace storeWikiSpaceId="AWS_FULLTH_CNT" productStoreId="aws"
-            spaceTypeEnumId="PstFull" locale="th_TH" fromDate="1265184000000" thruDate="" wikiSpaceId="AWS_SPACE_TH"/>
+    <mantle.product.store.ProductStoreWikiSpace storeWikiSpaceId="AWS_TMPTH_CLT"
+        productStoreId="aws"
+        spaceTypeEnumId="PstTmpSrv" locale="th_TH" fromDate="1265184000000" thruDate=""
+        wikiSpaceId="AWS_TMP_TH" />
+    <mantle.product.store.ProductStoreWikiSpace storeWikiSpaceId="AWS_FULLTH_CNT"
+        productStoreId="aws"
+        spaceTypeEnumId="PstFull" locale="th_TH" fromDate="1265184000000" thruDate=""
+        wikiSpaceId="AWS_SPACE_TH" />
 
-    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctFooterTemplate"/>
-    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctHeaderTemplate"/>
-    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctContentTemplate"/>
-    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctBlogTemplate"/>
+    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctFooterTemplate" />
+    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctHeaderTemplate" />
+    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctContentTemplate" />
+    <moqui.basic.Enumeration enumTypeId="ProductStoreContentType" enumId="PsctBlogTemplate" />
     <!-- EN -->
-    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_FOOTER" productStoreId="aws"
-            contentTypeEnumId="PsctFooterTemplate" fromDate="1265184000000" thruDate="" spaceTypeEnumId="PstTmpSrv" pagePath="client/footer"/>
-    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_HEADER" productStoreId="aws"
-            contentTypeEnumId="PsctHeaderTemplate" fromDate="1265184000000" thruDate="" spaceTypeEnumId="PstTmpSrv" pagePath="client/header"/>
-    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_BODY" productStoreId="aws"
-            contentTypeEnumId="PsctContentTemplate" fromDate="1265184000000" thruDate="" spaceTypeEnumId="PstTmpSrv" pagePath="client/body"/>
-    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_BLOG" productStoreId="aws"
-            contentTypeEnumId="PsctBlogTemplate" fromDate="1265184000000" thruDate="" spaceTypeEnumId="PstTmpSrv" pagePath="client/blog"/>
+    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_FOOTER"
+        productStoreId="aws"
+        contentTypeEnumId="PsctFooterTemplate" fromDate="1265184000000" thruDate=""
+        spaceTypeEnumId="PstTmpSrv" pagePath="client/footer" />
+    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_HEADER"
+        productStoreId="aws"
+        contentTypeEnumId="PsctHeaderTemplate" fromDate="1265184000000" thruDate=""
+        spaceTypeEnumId="PstTmpSrv" pagePath="client/header" />
+    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_BODY"
+        productStoreId="aws"
+        contentTypeEnumId="PsctContentTemplate" fromDate="1265184000000" thruDate=""
+        spaceTypeEnumId="PstTmpSrv" pagePath="client/body" />
+    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_BLOG"
+        productStoreId="aws"
+        contentTypeEnumId="PsctBlogTemplate" fromDate="1265184000000" thruDate=""
+        spaceTypeEnumId="PstTmpSrv" pagePath="client/blog" />
     <!-- TH -->
-    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_FOOTER_TH" productStoreId="aws"
-            contentTypeEnumId="PsctFooterTemplate" fromDate="1265184000000" thruDate="" spaceTypeEnumId="PstTmpSrv" pagePath="client-th/footer"/>
-    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_HEADER_TH" productStoreId="aws"
-            contentTypeEnumId="PsctHeaderTemplate" fromDate="1265184000000" thruDate="" spaceTypeEnumId="PstTmpSrv" pagePath="client-th/header"/>
-    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_BODY_TH" productStoreId="aws"
-            contentTypeEnumId="PsctContentTemplate" fromDate="1265184000000" thruDate="" spaceTypeEnumId="PstTmpSrv" pagePath="client-th/body"/>
+    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_FOOTER_TH"
+        productStoreId="aws"
+        contentTypeEnumId="PsctFooterTemplate" fromDate="1265184000000" thruDate=""
+        spaceTypeEnumId="PstTmpSrv" pagePath="client-th/footer" />
+    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_HEADER_TH"
+        productStoreId="aws"
+        contentTypeEnumId="PsctHeaderTemplate" fromDate="1265184000000" thruDate=""
+        spaceTypeEnumId="PstTmpSrv" pagePath="client-th/header" />
+    <mantle.product.store.ProductStoreWikiContent storeWikiContentId="AWS_CLT_BODY_TH"
+        productStoreId="aws"
+        contentTypeEnumId="PsctContentTemplate" fromDate="1265184000000" thruDate=""
+        spaceTypeEnumId="PstTmpSrv" pagePath="client-th/body" />
 </entity-facade-xml>
