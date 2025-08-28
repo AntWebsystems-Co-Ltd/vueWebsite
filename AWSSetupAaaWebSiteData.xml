@@ -1830,7 +1830,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- End of TH content of WebSite -->
 
     <!-- Wiki and ProductStore -->
-    <mantle.product.store.ProductStore productStoreId="aws" organizationPartyId="aws" />
+    <mantle.product.store.ProductStore productStoreId="aws" organizationPartyId="aws"
+        defaultLocale="en_US" />
     <moqui.basic.EnumerationType enumTypeId="ProductStoreWikiSpaceType"
         description="Product Store Wiki Space Type" />
     <moqui.basic.Enumeration enumTypeId="ProductStoreWikiSpaceType" enumId="PstTmpSrv"
